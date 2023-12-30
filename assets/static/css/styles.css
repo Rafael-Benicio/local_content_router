@@ -2,6 +2,7 @@
      padding: 0;
      margin: 0;
      overflow-x: hidden;  
+     background-color: #eee;
 }
 
 .conteiner{
@@ -20,4 +21,25 @@
      /* override other styles to make responsive */
      width: auto   !important;
      height: 100vh   !important;
+     background-color: black;  
+}
+
+#list_videos{
+     display: flex;
+     flex-direction: column;
+     margin-left: 3vh;
+     margin-right: 3vh;
+}
+
+#list_videos li{
+     font-size: larger;
+     padding-top: 3vh;
+     padding-bottom: 3vh;
+     border-bottom: 1px solid #ccc;
+     color: #333;
+}
+
+#list_videos li:hover{
+     opacity: 70%;
+     cursor: pointer;
 }
