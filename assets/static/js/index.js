@@ -38,5 +38,18 @@ function setVideoPath(path='',video=''){
      setVideoName(video)
 }
 
+function showVideoNameAndHide(){
+     let get_video_source=document.querySelector(`#${VIDEO_NAME_TAG_ID}`)
+     if (get_video_source.style.display === "none") {
+          get_video_source.style.display = "block";
+          setTimeout(() => {
+               get_video_source.style.display = "none";
+          }, "2000");
+     } else {
+          get_video_source.style.display = "none";
+     }
+
+}
+
 getEpisodesList().then(promiseEpsList => generateEpisodeList(promiseEpsList,'list_videos','li',VIDEO_PATH))
 

@@ -47,9 +47,9 @@
 #video_card_name{
      position: absolute;
      width: 94vw;
-     justify-content: center;
      display: flex;
      background-color: #000000;
+
 }
 
 #video_card_name p{
