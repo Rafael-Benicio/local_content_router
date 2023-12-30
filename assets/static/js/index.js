@@ -1,6 +1,7 @@
 const VIDEO_PATH='videos/Eps/'
 const MOVIE_PATH='videos/Filmes/'
 const VIDEO_TAG_ID='video_view'
+const VIDEO_NAME_TAG_ID='video_card_name'
 
 async function getEpisodesList(){
      let response = await fetch('http://192.168.3.30:3000/Eps');
@@ -22,12 +23,19 @@ function generateEpisodeList(episodeList=[''],elementId='',elementIn='',path='')
      setVideoPath(VIDEO_PATH,episodeList[0])
 }
 
+function setVideoName(video=''){
+     const videoType=video.split('.')[0]
+     let get_video_source=document.querySelector(`#${VIDEO_NAME_TAG_ID}>p`)
+     get_video_source.innerHTML=videoType
+}
+
 function setVideoPath(path='',video=''){
      const newPath=path+video
      const videoType=video.split('.')
      let get_video_source=document.getElementById(VIDEO_TAG_ID)
      get_video_source.setAttribute('src',newPath)
      get_video_source.setAttribute('type',`video/${videoType[1]}`)
+     setVideoName(video)
 }
 
 getEpisodesList().then(promiseEpsList => generateEpisodeList(promiseEpsList,'list_videos','li',VIDEO_PATH))

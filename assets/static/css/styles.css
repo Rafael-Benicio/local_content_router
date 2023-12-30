@@ -43,3 +43,21 @@
      opacity: 70%;
      cursor: pointer;
 }
+
+#video_card_name{
+     position: absolute;
+     width: 94vw;
+     justify-content: center;
+     display: flex;
+     background-color: #000000;
+}
+
+#video_card_name p{
+     font-size: larger;
+     padding: 2vh;
+     border-radius: 8px;
+     font-weight: bolder ;
+     /* opacity: 90%; */
+     color: #fff;
+     background-color: #000;
+}
