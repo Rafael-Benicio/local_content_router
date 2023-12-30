@@ -1,0 +1,17 @@
+*{
+     padding: 0;
+     margin: 0;
+}
+
+.conteiner{
+     display: flex;
+     flex-direction: column;
+}
+
+.box-1{
+     flex-basis:3;
+     background-color: black;     
+}
+.box-2{
+     flex: 2;
+}
