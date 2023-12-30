@@ -1,5 +1,5 @@
 async function getEpisodesList(){
-     let response = await fetch('http://localhost:3000/Eps');
+     let response = await fetch('http://192.168.3.30:3000/Eps');
      let data = await response.json();
      let listOfEpisodes=data.listEpisode[0]
      return listOfEpisodes
