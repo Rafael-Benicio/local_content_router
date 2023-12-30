@@ -7,7 +7,7 @@ app.use(express.static('assets'));
 const port = process.env.PORT || 3000;
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname, 'pages/index.html'));
 });
 
 app.get("/Eps", (req, res) => {
