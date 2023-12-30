@@ -4,14 +4,14 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.static('assets'));
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'pages/index.html'));
 });
 
 app.get("/Eps", (req, res) => {
-  fs.readdir('./videos/Eps', (err, files) => {
+  fs.readdir('./assets/videos/Eps/', (err, files) => {
     if (err) {
       console.error(err);
       return;
@@ -21,5 +21,5 @@ app.get("/Eps", (req, res) => {
   });
 })
 
-app.listen(port);
+app.listen(port,'0.0.0.0');
 console.log('Server started at http://localhost:' + port);
