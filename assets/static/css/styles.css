@@ -18,9 +18,6 @@
 }
 
 #video_view {
-     /* override other styles to make responsive */
-     width: auto   !important;
-     height: 100vh   !important;
      background-color: black;  
 }
 

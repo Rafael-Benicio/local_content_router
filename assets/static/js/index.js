@@ -50,5 +50,22 @@ function showVideoNameAndHide(){
 	}
 }
 
+function videoWindowResize(){
+	const windowHeight=window.innerHeight;
+	const windowWidth=window.innerWidth;
+	let get_video_tag=document.getElementById(VIDEO_TAG_ID);
+
+	if (windowHeight<windowWidth){
+		get_video_tag.style.setProperty('height','95vh','important');
+		get_video_tag.style.setProperty('width','auto','important');
+	}else{
+		get_video_tag.style.setProperty('height','auto','important');
+		get_video_tag.style.setProperty('width','100vw','important');
+	}
+
+}
+
+videoWindowResize();
+
 getEpisodesList().then(promiseEpsList => generateEpisodeList(promiseEpsList,'list_videos','li',VIDEO_PATH));
 
