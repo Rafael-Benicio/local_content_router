@@ -37,19 +37,6 @@ function setVideoPath(path='',video=''){
 	setVideoName(video);
 }
 
-// eslint-disable-next-line no-unused-vars
-function showVideoNameAndHide(){
-	let get_video_source=document.querySelector(`#${VIDEO_NAME_TAG_ID}`);
-	if (get_video_source.style.display === 'none') {
-		get_video_source.style.display = 'block';
-		setTimeout(() => {
-			get_video_source.style.display = 'none';
-		}, '2000');
-	} else {
-		get_video_source.style.display = 'none';
-	}
-}
-
 function videoWindowResize(){
 	const windowHeight=window.innerHeight;
 	const windowWidth=window.innerWidth;
@@ -69,3 +56,12 @@ videoWindowResize();
 
 getEpisodesList().then(promiseEpsList => generateEpisodeList(promiseEpsList,'list_videos','li',VIDEO_PATH));
 
+document.getElementById(VIDEO_TAG_ID).addEventListener('play', function() {
+	console.log('O vídeo está sendo reproduzido.');
+	document.getElementById(VIDEO_NAME_TAG_ID).style.display = 'none';
+});
+
+document.getElementById(VIDEO_TAG_ID).addEventListener('pause', function() {
+	console.log('O vídeo foi pausado.');
+	document.getElementById(VIDEO_NAME_TAG_ID).style.display = 'block';
+});
