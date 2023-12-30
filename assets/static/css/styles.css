@@ -45,6 +45,7 @@
      position: absolute;
      width: 94vw;
      display: flex;
+     border-radius: 8px;
      background-color: #000000;
 
 }
