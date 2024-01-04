@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const fs = require('fs');
 const app = express();
 const port = 3000;
@@ -13,6 +14,10 @@ fs.writeFile(__dirname+'/assets/static/js/vars.js', novoConteudo, (err) => {
 	}
 	console.log('Ip definido com sucesso!');
 });
+
+app.use(express.static('assets'));
+
+app.get('/', function(req, res) {res.sendFile(path.join(__dirname, 'pages/index.html'));});
 
 app.get('/Eps', (req, res) => {
 	fs.readdir('./assets/videos/Eps/', (err, files) => {
