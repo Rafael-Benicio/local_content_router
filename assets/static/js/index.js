@@ -2,9 +2,11 @@ const VIDEO_PATH='videos/Eps/';
 // const MOVIE_PATH='videos/Filmes/'
 const VIDEO_TAG_ID='video_view';
 const VIDEO_NAME_TAG_ID='video_card_name';
+// eslint-disable-next-line
+const IP_APLICATION=IpAplication;
 
 async function getEpisodesList(){
-	const response = await fetch('http://192.168.3.30:3000/Eps');
+	const response = await fetch(`http://${IP_APLICATION}/Eps`);
 	const data = await response.json();
 	return data.listEpisode[0];
 }

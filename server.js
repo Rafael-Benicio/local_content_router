@@ -1,14 +1,17 @@
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
-
 const app = express();
 const port = 3000;
+const os = require('os');
+const networkCardIP = os.networkInterfaces().wlo1[0].address;
+const novoConteudo = `const IpAplication="${networkCardIP}:3000";`;
 
-app.use(express.static('assets'));
-
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'pages/index.html'));
+fs.writeFile(__dirname+'/assets/static/js/vars.js', novoConteudo, (err) => {
+	if (err) {
+		console.error('Erro ao escrever no arquivo:', err);
+		return;
+	}
+	console.log('Ip definido com sucesso!');
 });
 
 app.get('/Eps', (req, res) => {
@@ -21,5 +24,5 @@ app.get('/Eps', (req, res) => {
 	});
 });
 
-app.listen(port,'0.0.0.0');
-console.log('Server started at http://localhost:' + port);
+app.listen(port,networkCardIP);
+console.log('Server started at http://'+networkCardIP+':' + port);
